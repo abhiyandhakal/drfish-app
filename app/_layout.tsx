@@ -1,16 +1,21 @@
+import authAtom from "@/atoms/auth";
 import Login from "@/components/login";
 import { Stack } from "expo-router";
-import { useState } from "react";
+import { useAtom } from "jotai";
+import { View, Text } from "@/components/themed";
 
 export default function Layout() {
-  const [loggedIn, setLoggedIn] = useState(false);
+  const [auth, _setAuth] = useAtom(authAtom);
 
-  if (!loggedIn) {
-    return <Login setLoggedIn={setLoggedIn} />;
+  if (!auth.loggedIn) {
+    return <Login />;
   }
 
   return (
     <>
+      <View>
+        <Text>Header</Text>
+      </View>
       <Stack
         screenOptions={{
           headerShown: false,

@@ -2,15 +2,14 @@ import { View, Text, TextInput } from "@/components/themed";
 import { Pressable } from "react-native";
 import users from "@/constants/users";
 import { useState } from "react";
+import { useAtom } from "jotai";
+import authAtom from "@/atoms/auth";
 
-export default function Login({
-  setLoggedIn,
-}: {
-  setLoggedIn: React.Dispatch<React.SetStateAction<boolean>>;
-}) {
+export default function Login() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState<string | null>(null);
+  const [auth, setAuth] = useAtom(authAtom);
 
   function handleLogin() {
     const user = users.find(
@@ -18,7 +17,8 @@ export default function Login({
     );
 
     if (user) {
-      setLoggedIn(true);
+      // setLoggedIn(true);
+      setAuth({ loggedIn: true, user });
     } else {
       setError("Invalid username or password");
     }
@@ -50,10 +50,17 @@ export default function Login({
             className="border-2 border-blue-200 w-full rounded-full py-2 px-4"
             placeholder="password"
             placeholderTextColor="#666"
+            keyboardType="visible-password"
+            secureTextEntry={true}
+            autoComplete="password"
           />
         </View>
 
         {error && <Text className="text-red-500 text-center">{error}</Text>}
+
+        {auth.loggedIn && (
+          <Text className="text-green-500 text-center">Logged in</Text>
+        )}
 
         <Pressable onPress={handleLogin} className="w-full pt-4">
           <Text className="text-center text-black font-bold rounded-full bg-blue-400 py-3 w-full">
