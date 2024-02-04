@@ -38,4 +38,5 @@ const styles = StyleSheet.create({
   darkThemeText: {
     color: "#d0d0c0",
   },
+  text: {},
 });
