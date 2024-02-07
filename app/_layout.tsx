@@ -10,6 +10,7 @@ import { StatusBar } from "expo-status-bar";
 
 export default function Layout() {
   const [auth, _setAuth] = useAtom(authAtom);
+
   const colorScheme = useColorScheme();
 
   if (!auth.loggedIn) {
