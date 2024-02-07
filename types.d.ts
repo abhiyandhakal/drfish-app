@@ -6,3 +6,8 @@ type User = {
   role: "owner" | "employee";
   profile?: string;
 };
+
+type Review = {
+  color: "red" | "green" | "blue";
+  message: string;
+};
