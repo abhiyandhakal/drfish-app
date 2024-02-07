@@ -4,6 +4,7 @@ import Ph from "@/components/ph";
 import Oxygen from "@/components/oxygen";
 import { ScrollView } from "react-native-gesture-handler";
 import Ammonia from "@/components/ammonia";
+import Potassium from "@/components/potassium";
 
 export default function Page() {
   return (
@@ -13,6 +14,7 @@ export default function Page() {
         <Ph />
         <Oxygen />
         <Ammonia />
+        <Potassium />
       </View>
     </ScrollView>
   );
