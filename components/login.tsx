@@ -13,7 +13,8 @@ export default function Login() {
 
   function handleLogin() {
     const user = users.find(
-      (user) => user.username === username && user.password === password,
+      (user) =>
+        user.username === username.trimEnd() && user.password === password,
     );
 
     if (user) {
