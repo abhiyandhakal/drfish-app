@@ -5,6 +5,7 @@ import { GestureHandlerRootView } from "react-native-gesture-handler";
 import { Drawer } from "expo-router/drawer";
 import colors from "@/constants/colors";
 import { useColorScheme } from "react-native";
+import CustomDrawer from "@/components/custom-drawer";
 
 export default function Layout() {
   const [auth, _setAuth] = useAtom(authAtom);
@@ -18,6 +19,7 @@ export default function Layout() {
     <>
       <GestureHandlerRootView style={{ flex: 1 }}>
         <Drawer
+          drawerContent={(props) => <CustomDrawer {...props} />}
           screenOptions={{
             headerShown: true,
             headerStyle: {
@@ -26,9 +28,10 @@ export default function Layout() {
             drawerStyle: {
               backgroundColor: colors[colorScheme ?? "dark"].background,
             },
-            drawerActiveBackgroundColor: colors[colorScheme ?? "dark"].tint,
+            drawerActiveBackgroundColor:
+              colors[colorScheme ?? "dark"].backgroundSecondary,
             drawerInactiveTintColor: colors[colorScheme ?? "dark"].text,
-            drawerActiveTintColor: colors[colorScheme ?? "dark"].background,
+            drawerActiveTintColor: colors[colorScheme ?? "dark"].text,
           }}
         >
           <Drawer.Screen
@@ -47,11 +50,6 @@ export default function Layout() {
           />
         </Drawer>
       </GestureHandlerRootView>
-      {/* <Stack */}
-      {/*   screenOptions={{ */}
-      {/*     headerShown: false, */}
-      {/*   }} */}
-      {/* /> */}
     </>
   );
 }

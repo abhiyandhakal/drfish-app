@@ -4,4 +4,5 @@ type User = {
   username: string;
   password: string;
   role: "owner" | "employee";
+  profile?: string;
 };
