@@ -10,7 +10,10 @@ export default {
     tabIconSelected: tintColorLight,
     link: "#2f95dc",
     backgroundSecondary: "#ddd",
-    red: "#ff0000",
+    red: "#a70124",
+    yellow: "#f7b731",
+    green: "#20bf6b",
+    blue: "#2f95dc",
   },
   dark: {
     text: "#fff",
@@ -20,6 +23,9 @@ export default {
     tabIconSelected: tintColorDark,
     link: "#2f95dc",
     backgroundSecondary: "#333338",
-    red: "#d73154",
+    red: "#f75174",
+    yellow: "#f7b731",
+    green: "#3d5",
+    blue: "#2f95dc",
   },
 };

@@ -6,6 +6,7 @@ import { Drawer } from "expo-router/drawer";
 import colors from "@/constants/colors";
 import { useColorScheme } from "react-native";
 import CustomDrawer from "@/components/custom-drawer";
+import { StatusBar } from "expo-status-bar";
 
 export default function Layout() {
   const [auth, _setAuth] = useAtom(authAtom);
@@ -50,6 +51,7 @@ export default function Layout() {
           />
         </Drawer>
       </GestureHandlerRootView>
+      <StatusBar style="auto" />
     </>
   );
 }
