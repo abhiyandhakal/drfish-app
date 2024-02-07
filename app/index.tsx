@@ -1,7 +1,9 @@
 import { View } from "@/components/themed";
 import Temperature from "@/components/temperature";
 import Ph from "@/components/ph";
+import Oxygen from "@/components/oxygen";
 import { ScrollView } from "react-native-gesture-handler";
+import Ammonia from "@/components/ammonia";
 
 export default function Page() {
   return (
@@ -9,11 +11,8 @@ export default function Page() {
       <View className="flex-1 flex justify-center items-center">
         <Temperature />
         <Ph />
-        <Ph />
-        <Ph />
-        <Ph />
-        <Ph />
-        <Ph />
+        <Oxygen />
+        <Ammonia />
       </View>
     </ScrollView>
   );

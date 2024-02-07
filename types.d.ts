@@ -9,5 +9,5 @@ type User = {
 
 type Review = {
   color: "red" | "green" | "blue";
-  message: string;
+  message: React.ReactNode;
 };
