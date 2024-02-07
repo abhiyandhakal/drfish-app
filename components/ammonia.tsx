@@ -16,7 +16,7 @@ export default function Ammonia({ className }: { className?: string }) {
   useEffect(() => {
     const interval = setInterval(() => {
       updateAmmonias();
-    }, 1000);
+    }, 3000);
 
     return () => clearInterval(interval);
   }, []);
@@ -57,17 +57,18 @@ export default function Ammonia({ className }: { className?: string }) {
   function updateAmmonias() {
     // range
     const range = { min: 0, max: 0.13 };
-    const newAmmonias = ammonias.map(() => {
+    const newAmmonias = ammonias.map((ammonia) => {
       let fluctuation;
 
       // Generate random fluctuation with higher probability near 0
-      if (Math.random() < 0.85) {
-        fluctuation = Math.random() * 0.03; // Generate random fluctuation within [0, 0.03]
+      const random = Math.random();
+      if (random < 0.85) {
+        fluctuation = random * 0.03 * (Math.random() < 0.5 ? 1 : -1); // Generate random fluctuation within [0, 0.03]
       } else {
-        fluctuation = Math.random() * (range.max - 0.03) + 0.03; // Generate random fluctuation within [0.03, 0.13]
+        fluctuation = random * (range.max - 0.03) + 0.03; // Generate random fluctuation within [0.03, 0.13]
       }
 
-      return fluctuation;
+      return Math.min(range.max, Math.max(range.min, ammonia + fluctuation));
     });
     setAmmonias(newAmmonias);
   }
