@@ -4,10 +4,12 @@ import { LineChart } from "react-native-chart-kit";
 import { Dimensions, useColorScheme } from "react-native";
 import colors from "@/constants/colors";
 import { useEffect, useState } from "react";
+import { useAtom } from "jotai";
+import { phAtom } from "@/atoms/water-parameters";
 
 export default function Ph({ className }: { className?: string }) {
   const colorscheme = useColorScheme();
-  const [pHs, setPHs] = useState([7.5, 7, 6.5, 8, 6.5, 7.2]);
+  const [pHs, setPHs] = useAtom(phAtom);
   const [pHReview, setPHReview] = useState<Review>({
     color: "green",
     message: "pH is normal",

@@ -4,10 +4,12 @@ import { LineChart } from "react-native-chart-kit";
 import { Dimensions, useColorScheme } from "react-native";
 import colors from "@/constants/colors";
 import { useEffect, useState } from "react";
+import { useAtom } from "jotai";
+import { oxygenAtom } from "@/atoms/water-parameters";
 
 export default function Oxygen({ className }: { className?: string }) {
   const colorscheme = useColorScheme();
-  const [oxygens, setOxygens] = useState([7.5, 7, 6.5, 8, 6.5, 7.2]);
+  const [oxygens, setOxygens] = useAtom(oxygenAtom);
   const [oxygenReview, setOxygenReview] = useState<Review>({
     color: "green",
     message: "Oxygen level is normal",

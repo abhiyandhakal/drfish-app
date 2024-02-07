@@ -4,10 +4,12 @@ import { LineChart } from "react-native-chart-kit";
 import { Dimensions, useColorScheme } from "react-native";
 import colors from "@/constants/colors";
 import { useEffect, useState } from "react";
+import { useAtom } from "jotai";
+import { ammoniaAtom } from "@/atoms/water-parameters";
 
 export default function Ammonia({ className }: { className?: string }) {
   const colorscheme = useColorScheme();
-  const [ammonias, setAmmonias] = useState([7.5, 7, 6.5, 8, 6.5, 7.2]);
+  const [ammonias, setAmmonias] = useAtom(ammoniaAtom);
   const [ammoniaReview, setAmmoniaReview] = useState<Review>({
     color: "green",
     message: "Ammonia level is normal",

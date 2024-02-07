@@ -3,10 +3,12 @@ import { Text } from "./themed";
 import Card from "./card";
 import { useColorScheme } from "react-native";
 import { useEffect, useState } from "react";
+import { useAtom } from "jotai";
+import { temperatureAtom } from "@/atoms/water-parameters";
 
 export default function Temperature() {
   const colorscheme = useColorScheme();
-  const [temperature, setTemperature] = useState("14");
+  const [temperature, setTemperature] = useAtom(temperatureAtom);
   const [tempReview, setTempReview] = useState<Review>({
     color: "green",
     message: "Temperature is normal",

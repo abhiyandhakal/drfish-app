@@ -4,11 +4,12 @@ import { LineChart } from "react-native-chart-kit";
 import { Dimensions, useColorScheme } from "react-native";
 import colors from "@/constants/colors";
 import { useEffect, useState } from "react";
+import { useAtom } from "jotai";
+import { potassiumAtom } from "@/atoms/water-parameters";
 
 export default function Potassium({ className }: { className?: string }) {
   const colorscheme = useColorScheme();
-  let data = [1.2, 2.3, 5.6, 6.7, 7.8, 3.4, 4.5];
-  const [potassiums, setPotassiums] = useState(data);
+  const [potassiums, setPotassiums] = useAtom(potassiumAtom);
   const [potassiumReview, setPotassiumReview] = useState<Review>({
     color: "green",
     message: "Potassium level is normal",
