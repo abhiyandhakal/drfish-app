@@ -44,6 +44,13 @@ export default function Layout() {
             }}
           />
           <Drawer.Screen
+            name="detail"
+            options={{
+              drawerLabel: "Details",
+              title: "Details",
+            }}
+          />
+          <Drawer.Screen
             name="test"
             options={{
               drawerLabel: "Test",
